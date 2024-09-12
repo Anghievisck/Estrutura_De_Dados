@@ -1,18 +1,73 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include "TADs/pilha.h"
 
-int main(){
-    int n, resto;
+void PrintStack(stack *s, int *e){
+    int x;
+    stack temp;
 
-    scanf("%d", &n);
+    Create(&temp);
 
-    while(n/2 != 0){
-        resto = n%2;
-        printf("Q: %d\nR: %d\n", n, resto);
-        n /= 2;
+    while(!IsEmpty(s)){
+        Pop(s, &x, e);
+        if(!*e){
+            printf("%d\n", x);
+            Push(&temp, &x, e);
+            if(*e){
+                printf("There was an error.");
+                return;
+            }
+        } else {
+            printf("There was an error.");
+            return;
+        }
     }
-    printf("Q: %d\nR: %d\n", n, resto);
+
+    while(!IsEmpty(&temp)){
+        Pop(&temp, &x, e);
+            if(!*e){
+                Push(s, &x, e);
+            if(*e){
+                printf("There was an error.");
+                return;
+            }
+        } else {
+            printf("There was an error.");
+            return;
+        }
+    }
 
     return;
+}
+
+int isEqual(stack *s, stack *p, int *e){
+    int temp;
+    stack auxS, auxP;
+
+    while(!IsEmpty(s)){
+    }
+    
+
+    while(1 == 1){
+        if(IsEmpty(s) != IsEmpty(p)){
+            return 0;
+        } else {
+        }
+    }
+}
+
+int main(){
+    stack s;
+    int e = 0;
+
+    Create(&s);
+
+    for(int i = 1; i < 21; i ++){
+        Push(&s, &i, &e);
+    }
+
+    PrintStack(&s, &e);
+
+    return 0;
 }
