@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "TADs/pilha.h"
+#include "../TADs/Pilha/pilha.h"
 
 void PrintStack(Stack *s, int *e){
     type x;
