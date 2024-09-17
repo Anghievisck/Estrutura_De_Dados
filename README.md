@@ -2,10 +2,10 @@
 Repo para armazenar minhas anotações e atividades relacionadas a esta matéria
 
 # Compilação
-Até que eu crie um make file, para compilar por exemplo o "Desafios\Fila\main.c",
+Até que eu crie um make file, para compilar por exemplo o "Exercicios\Fila\main.c",
 os seguintes passos devem ser seguidos:
 
-No command prompt, navegue até a pasta "Desafios\Fila" e digite:
+No command prompt, navegue até a pasta "Exercicios\Fila" e digite:
 
 ```
 gcc -c main.c
