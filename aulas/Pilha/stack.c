@@ -3,9 +3,9 @@
 #include <math.h>
 #include "TADs/pilha.h"
 
-void PrintStack(stack *s, int *e){
-    int x;
-    stack temp;
+void PrintStack(Stack *s, int *e){
+    type x;
+    Stack temp;
 
     Create(&temp);
 
@@ -41,33 +41,64 @@ void PrintStack(stack *s, int *e){
     return;
 }
 
-int isEqual(stack *s, stack *p, int *e){
-    int temp;
-    stack auxS, auxP;
+int isEqual(Stack s, Stack p){
+    type x, y;
+    int e1, e2;
 
-    while(!IsEmpty(s)){
-    }
-    
+    while(!IsEmpty(&s) || !IsEmpty(&p)){
+        Pop(&s, &x, &e1);
+        Pop(&p, &y, &e2);
 
-    while(1 == 1){
-        if(IsEmpty(s) != IsEmpty(p)){
+        if(x != y || e1 != e2){
             return 0;
-        } else {
         }
     }
+
+    return 1;
+}
+
+Stack invertStack(Stack s, int *e){
+    Stack temp;
+    type x;
+
+    Create(&temp);
+
+    while(!IsEmpty(&s)){
+        Pop(&s, &x, e);
+        if(!*e){
+            Push(&temp, &x, e);
+            if(*e){
+                printf("There was an error.");
+                break;
+            }
+        } else {
+            printf("There was an error.");
+            break;
+        }
+    }
+
+    return temp;
 }
 
 int main(){
-    stack s;
+    Stack s, p;
     int e = 0;
 
     Create(&s);
+    Create(&p);
 
     for(int i = 1; i < 21; i ++){
         Push(&s, &i, &e);
+        Push(&p, &i, &e);
     }
 
     PrintStack(&s, &e);
+    printf("\nIs equal?(1 == y, 0 == n)\n%d", isEqual(s, p));
+
+    p = invertStack(p, &e);
+    printf("\n\nInvernting...\np:\n");
+
+    PrintStack(&p, &e);
 
     return 0;
 }

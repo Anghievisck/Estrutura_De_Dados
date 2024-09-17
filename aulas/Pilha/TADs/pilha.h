@@ -2,15 +2,15 @@
 
 typedef int type;
 
-typedef struct{
+typedef struct {
     type stack[LENGHT];
     int index;
-} stack;
+} Stack;
 
-void Create(stack*);
-void Empty(stack*);
-void Pop(stack*, type*, int*);
-void Push(stack*, type*, int*);
-int IsEmpty(stack*);
-int IsFull(stack*);
-type Top(stack*, int*);
+void Create(Stack*);
+void Empty(Stack*);
+void Pop(Stack*, type*, int*);
+void Push(Stack*, type*, int*);
+int IsEmpty(Stack*);
+int IsFull(Stack*);
+type Top(Stack*, int*);

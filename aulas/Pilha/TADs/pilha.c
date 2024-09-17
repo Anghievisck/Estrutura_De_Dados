@@ -2,23 +2,23 @@
 
 typedef int type;
 
-void Create(stack *s){
+void Create(Stack *s){
     s -> index = -1;
 }
 
-void Empty(stack *s){
+void Empty(Stack *s){
     s -> index = -1;
 }
 
-int IsEmpty(stack *s){
+int IsEmpty(Stack *s){
     return (s -> index == -1) ? 1 : 0;
 }
 
-int IsFull(stack *s){
+int IsFull(Stack *s){
     return (s -> index == (LENGHT-1)) ? 1 : 0;
 }
 
-void Push(stack *s, type *n, int *erro){
+void Push(Stack *s, type *n, int *erro){
     if((*erro = IsFull(s))){
     } else {
         s -> index++;
@@ -26,7 +26,7 @@ void Push(stack *s, type *n, int *erro){
     }
 }
 
-void Pop(stack *s, type *n, int *erro){
+void Pop(Stack *s, type *n, int *erro){
     if((*erro = IsEmpty(s))){
     } else {
         *n = s -> stack[s -> index];
@@ -34,7 +34,7 @@ void Pop(stack *s, type *n, int *erro){
     }
 }
 
-type Top(stack *s, int *erro){
+type Top(Stack *s, int *erro){
     if((*erro = IsEmpty(s))){
     } else {
         return s -> stack[s -> index];
