@@ -7,10 +7,10 @@ typedef struct {
     int index;
 } Stack;
 
-void Create(Stack*);
-void Empty(Stack*);
+void CreateS(Stack*);
+void EmptyS(Stack*);
 void Pop(Stack*, type*, int*);
 void Push(Stack*, type*, int*);
-int IsEmpty(Stack*);
-int IsFull(Stack*);
+int IsEmptyS(Stack*);
+int IsFullS(Stack*);
 type Top(Stack*, int*);

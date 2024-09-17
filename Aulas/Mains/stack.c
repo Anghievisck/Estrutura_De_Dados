@@ -9,7 +9,7 @@ void PrintStack(Stack *s, int *e){
 
     Create(&temp);
 
-    while(!IsEmpty(s)){
+    while(!IsEmptyS(s)){
         Pop(s, &x, e);
         if(!*e){
             printf("%d\n", x);
@@ -24,7 +24,7 @@ void PrintStack(Stack *s, int *e){
         }
     }
 
-    while(!IsEmpty(&temp)){
+    while(!IsEmptyS(&temp)){
         Pop(&temp, &x, e);
             if(!*e){
                 Push(s, &x, e);
@@ -45,7 +45,7 @@ int isEqual(Stack s, Stack p){
     type x, y;
     int e1, e2;
 
-    while(!IsEmpty(&s) || !IsEmpty(&p)){
+    while(!IsEmptyS(&s) || !IsEmptyS(&p)){
         Pop(&s, &x, &e1);
         Pop(&p, &y, &e2);
 
@@ -63,7 +63,7 @@ Stack invertStack(Stack s, int *e){
 
     Create(&temp);
 
-    while(!IsEmpty(&s)){
+    while(!IsEmptyS(&s)){
         Pop(&s, &x, e);
         if(!*e){
             Push(&temp, &x, e);

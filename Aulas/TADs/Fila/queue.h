@@ -8,11 +8,11 @@ typedef struct queue{
     int total;
 } Queue;
 
-void Create(Queue*);
-void Empty(Queue*);
+void CreateQ(Queue*);
+void EmptyQ(Queue*);
 void In(Queue*, item*, int*);
 void Out(Queue*, item*, int*);
-int IsEmpty(Queue*);
-int IsFull(Queue*);
+int IsEmptyQ(Queue*);
+int IsFullQ(Queue*);
 
-int GetTotal(Queue*);
+int GetLength(Queue*);

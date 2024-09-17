@@ -5,7 +5,7 @@ int IsCrescente(Queue f){
     int e = 0;
     item x, y;
 
-    while(!IsEmpty(&f)){
+    while(!IsEmptyQ(&f)){
         Out(&f, &x, &e);
         Out(&f, &y, &e);
         
