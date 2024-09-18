@@ -3,9 +3,9 @@
 #define LENGHT 1000
 
 typedef struct book{
-    char name[126];
+    char name[128];
     int avaiable;
-    queue waitingList;
+    Queue waitingList;
 } book;
 
 void NewBook(book*, char[256]);
