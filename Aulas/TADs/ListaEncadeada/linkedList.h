@@ -1,18 +1,50 @@
-typedef int type;
-typedef struct node Node;
-typedef struct list List;
+typedef int elem;
+typedef struct node{
+    elem data;
+    struct node *next;
+}Node;
 
-List* Create();
+typedef struct list{
+    Node *start, *end;
+}List;
 
-Node* SelectItem(List*, type*);
+typedef struct stack{
+    Node *top;
+}Stack;
 
-void DelList(List*);
-void DelItem(List*, type*, int*);
+// List:
+List* L_Create();
 
-void Insert(List*, type*, int*);
+Node* SelectNode(List*, elem*);
+elem FindElementByID(List*, int, int*);
+int IsInList(List*, elem*);
 
-int Length(List *);
+void L_Insert(List*, elem*, int*);
 
-void Invert(List*);
+void DelItem(List*, elem*, int*);
+void DelItemByID(List*, int, int*);
+
+int L_Length(List*);
+int LengthR(List*);
+
+void L_Invert(List*);
 
 void PrintList(List*);
+
+void L_Delete(List*);
+
+// Stack:
+Stack* S_Create();
+
+int S_IsEmpty(Stack*);
+
+void S_Push(Stack*, elem*, int*);
+void S_Pop(Stack*, elem*, int*);
+
+void S_Delete(Stack*);
+
+// Queue:
+List* Q_Create();
+
+void Q_Insert(List*, elem*, int*);
+void Q_Pop(List*, elem*, int*);
