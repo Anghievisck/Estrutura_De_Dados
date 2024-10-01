@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../TADs/ListaEncadeada/linkedList.h"
+#include "linkedList.h"
 
 int main(){
     List *lista;

@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "../TADs/Fila/queue.h"
+#include "queue.h"
 
 int IsCrescente(Queue f){
     int e = 0;
