@@ -239,20 +239,33 @@ void PrintTreeSup(Tree *t, Node *n, enum DATA_TYPE dType){
             if(sup == NULL){
                 printf("%d (NULL)\n", n->info.i);
             } else {
-                printf("%d (%d)\n", n->info.i, sup->info.i);
+                if(sup->nextL == n){
+                    printf("%d (< %d)\n", n->info.i, sup->info.i);
+                } else {
+                    printf("%d (> %d)\n", n->info.i, sup->info.i);
+                }
             }
         } else {
             PrintTreeSup(t, n->nextL, dType);
             PrintTreeSup(t, n->nextR, dType);
 
             Node *sup = FindPrevious(t, &n->info, dType);
-            printf("%c (%c)\n", n->info.c, sup->info.c);
+            if(sup == NULL){
+                printf("%c (NULL)\n", n->info.c);
+            } else {
+                if(sup->nextL ==  n){
+                    printf("%c (< %c)\n", n->info.c, sup->info.c);
+                } else {
+                    printf("%c (> %c)\n", n->info.c, sup->info.c);
+                }
+            }
         }
     }
 }
 
 void PrintTree(Tree *t, enum DATA_TYPE dType){
     if(IsEmpty(t)){
+        printf("\nA arvore esta vazia!\n");
         return;
     }
 
