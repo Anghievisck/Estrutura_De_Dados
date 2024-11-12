@@ -32,12 +32,12 @@ void DelTreeSup(Node *n){
     }
 }
 
-void DelTree(Tree *t){
-    DelTreeSup(t->sentinel->nextL);
-    DelTreeSup(t->sentinel->nextR);
+void DelTree(Tree **t){
+    DelTreeSup((*t)->sentinel->nextL);
+    DelTreeSup((*t)->sentinel->nextR);
 
-    t->sentinel->nextL = NULL;
-    t->sentinel->nextR = NULL;
+    (*t)->sentinel->nextL = NULL;
+    (*t)->sentinel->nextR = NULL;
 }
 
 int main(){
@@ -79,10 +79,39 @@ int main(){
 
     printf("\nAltura da arvore: %d\n", GetTreeHeight(t->sentinel));
 
-    printf("\nDeleting tree...\n");
-    DelTree(t);
+    info.i = 3;
+    printf("\nDeletando um dado (3): %d\n", Delete(t, &info, INT));
 
-    printf("\nImprindo a arvore:\n");
+    printf("Imprindo a arvore:\n");
+    PrintTree(t, INT);
+
+    info.i = 4;
+    printf("\nDeletando um dado (4): %d\n", Delete(t, &info, INT));
+
+    printf("Imprindo a arvore:\n");
+    PrintTree(t, INT);
+
+    printf("\nDeletando a arvore...\n");
+    DelTree(&t);
+
+    printf("Imprindo a arvore:\n");
+    PrintTree(t, INT);
+
+    printf("\nInserindo novos dados...\n");
+    info.i = 8;
+    Insert(t, &info, INT);
+    info.i = 10;
+    Insert(t, &info, INT);
+    info.i = 1;
+    Insert(t, &info, INT);
+    info.i = 3;
+    Insert(t, &info, INT);
+    info.i = 4;
+    Insert(t, &info, INT);
+    info.i = 5;
+    Insert(t, &info, INT);
+
+    printf("Imprindo a arvore:\n");
     PrintTree(t, INT);
 
 /* Not Working Yet

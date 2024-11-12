@@ -122,39 +122,63 @@ int Delete(Tree *t, Data *d, enum DATA_TYPE dType){
         }
 
         Node *aux = FindPrevious(t, d, dType);
+        if(aux == NULL && temp != (dType == INT ? t->sentinel->nextL : t->sentinel->nextR)) {
+            return 0;
+        }
+
         Node *sup;
 
-        if(aux == NULL){
-            free(temp);
-            temp = NULL;
-        } else {
-            if(temp->nextL == NULL && temp->nextR == NULL){
-                if(aux->nextL == temp){
-                    aux->nextL = NULL;
+        if(temp->nextL == NULL && temp->nextR == NULL){
+            if(aux == NULL){
+                if(t->sentinel->nextL == temp){
+                    t->sentinel->nextL = temp->nextL;
                 } else {
-                    aux->nextR = NULL;
+                    t->sentinel->nextR = temp->nextL;
                 }
-
-                free(temp);
-                temp = NULL;
+            } else if(aux->nextL == temp){
+                aux->nextL = NULL;
             } else {
+                aux->nextR = NULL;
+            }
+
+            free(temp);
+
+            return 1;
+        } else {
+            if(temp->nextR != NULL){
                 sup = FindMin(temp->nextR);
                 aux = FindPrevious(t, &sup->info, sup->dataType);
+
                 temp->info = sup->info;
 
-                if(sup->nextR != NULL){
-                    aux->nextL = sup->nextR;
+                if(temp == aux){
+                    aux->nextR = sup->nextR;
                 } else {
-                    aux->nextL = NULL;
+                    aux->nextL = sup->nextR;
                 }
 
                 free(sup);
-                sup = NULL;
+
+                return 1;
+            } else {
+                if(aux == NULL){
+                    if(t->sentinel->nextL == temp){
+                        t->sentinel->nextL = temp->nextL;
+                    } else {
+                        t->sentinel->nextR = temp->nextL;
+                    }
+                } else {
+                    aux->nextL = temp->nextL;
+                }
+
+                free(temp);
+
+                return 1;
             }
         }
     }
 
-    return 1;
+    return 0;
 }
 
 Node* Search(Node *aux, Data *d, enum DATA_TYPE dType){
